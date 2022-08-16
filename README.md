@@ -1,6 +1,6 @@
 # Liquibase
 
-### Liquibase
+### Liquibase для управления схемой данных
 
 Links:
 
