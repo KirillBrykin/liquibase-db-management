@@ -15,6 +15,8 @@ public class UserEntity {
     @Column(nullable = false)
     private String name;
     private Integer age;
+    private String email;
+
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "userId")
