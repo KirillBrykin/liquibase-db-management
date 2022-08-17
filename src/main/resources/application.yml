@@ -1,11 +1,16 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/liquibase-db-management
     username: user
     password: user
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
     hibernate:
-      ddl-auto: update
-    show-sql: false
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
