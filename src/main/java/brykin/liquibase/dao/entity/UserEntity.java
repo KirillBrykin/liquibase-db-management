@@ -1,19 +1,23 @@
 package brykin.liquibase.dao.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "liquibase_user")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserEntity {
     @Id
     private Long id;
+    @Column(nullable = false)
     private String name;
     private Integer age;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "userId")
+    @ToString.Exclude
+    private List<RoleEntity> roles;
 }
